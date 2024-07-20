@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: AIOTracker
+  sql:
+    init:
+      mode: never
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/mydatabase'
+    username: 'myuser'
+    password: 'secret'
+    driver-class-name: 'org.postgresql.Driver'
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    
+    properties:
+      jakarta:
+        persistence:
+          schema-generation:
+            scripts:
+              action: drop-and-create
+              append: false
+              create-target: src/main/resources/schema.sql
+              drop-target: src/main/resources/schema_drop.sql
+              sql-load-target: src/main/resources/data.sql
+            create-source: metadata
+  thymeleaf:
+    prefix: 'classpath:/templates/'

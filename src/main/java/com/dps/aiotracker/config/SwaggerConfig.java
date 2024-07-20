@@ -1,4 +1,4 @@
-package config;
+package com.dps.aiotracker.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }
