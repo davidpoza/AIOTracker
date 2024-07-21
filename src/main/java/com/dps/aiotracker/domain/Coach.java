@@ -17,14 +17,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "AIOT_USER")
-public class User {
+@Table(name = "AIOT_COACH")
+public class Coach {
 	@Id
-    @Column(name="ID")
-    @SequenceGenerator(name = "AIOT_USER_SEQ", sequenceName = "AIOT_USER_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AIOT_USER_SEQ")
+    @Column(name="id")
+    @SequenceGenerator(name = "AIOT_COACH_SEQ", sequenceName = "AIOT_COACH_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AIOT_COACH_SEQ")
     private Long id;
 	
-	
-	String name;
+	@Column(name="name")
+	private String name;
+	 
+	@Column(name="email")
+	String email;
 }

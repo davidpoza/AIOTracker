@@ -1,4 +1,4 @@
-package com.dps.aiotracker.controllers;
+package com.dps.aiotracker.controller;
 
 import java.util.Arrays;
 import java.util.List;
