@@ -52,6 +52,7 @@ erDiagram
     SUPPLEMENT_LOG {
       integer id PK
       timestamp timestamp
+      double amount
       integer user_id
       integer supplement_type_id FK
     }
