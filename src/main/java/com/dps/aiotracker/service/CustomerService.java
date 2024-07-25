@@ -1,7 +1,6 @@
 package com.dps.aiotracker.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,8 @@ public class CustomerService {
 	private CustomerMapper customerMapper;
 
 	public List<CustomerDTO> getAllCustomers() {
-		return customerRepository.findAll().stream().map(customerMapper::toDto).collect(Collectors.toList());
+		List<Customer> resultado = customerRepository.findAll();
+		return customerMapper.toDto(resultado);
 	}
 
 	public CustomerDTO getCustomerById(Long id) {
