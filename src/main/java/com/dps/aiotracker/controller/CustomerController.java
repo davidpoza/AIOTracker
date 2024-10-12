@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dps.aiotracker.dto.CustomerDTO;
 import com.dps.aiotracker.service.CustomerService;
 
+import jakarta.validation.Valid;
+
 @RestController
+@Validated
 @RequestMapping("/customers")
 public class CustomerController {
 
@@ -34,7 +38,7 @@ public class CustomerController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
+	public ResponseEntity<CustomerDTO> createCustomer(@Valid @RequestBody CustomerDTO customerDTO) {
 		return ResponseEntity.ok(customerService.createCustomer(customerDTO));
 	}
 
